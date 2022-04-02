@@ -79,7 +79,7 @@ Which means, `2@@25$gf` we also can see is commented in that line.
 
 The next few lines after this place in memory, we see the rest of the value of the hex.
 
-dword = 32 bit values
+dword = 32 bit values  
 word = 16 bit values
 
 ```assembly
