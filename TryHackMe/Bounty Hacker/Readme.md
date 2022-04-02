@@ -71,7 +71,7 @@ Lets try to enter some of the ports we got from the last task.
 We can start by port 80(http) which we can enter by going into our browser, and typing the target IP in the search bar. The browser will by default add either the 80 or 443(https) port at the end of your entered IP, so you don't have to specify that.
 
 The website will show this:
-![Website](Bounty-hunter-firefox.png)
+![Website](Bounty-hacker-firefox.png)
 Which isn't thaaaat interesting. 
 
 I also tried to see if there were any robots.txt file, and even tried brute-forcing possible directories on the website. But nope, nothing.
