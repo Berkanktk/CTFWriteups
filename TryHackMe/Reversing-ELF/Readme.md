@@ -184,7 +184,7 @@ We found the flag!
 
 By running this ELF file, we get:
 ```console
-berkankutuk@thm:~$ 
+berkankutuk@thm:~$ ./crackme5
 Enter your input:
 test
 Always dig deeper
@@ -405,7 +405,7 @@ Therefore, we should copy this value and paste it into the, [Hexadecimal to Deci
 
 By getting the negative numeric value, we can now try it as the password.
 ```console
-berkankutuk@thm:~$ crackme8 <password_here>
+berkankutuk@thm:~$ ./crackme8 <password_here>
 flag_is_shown_here
 ```
 Congratulations, you did it!
