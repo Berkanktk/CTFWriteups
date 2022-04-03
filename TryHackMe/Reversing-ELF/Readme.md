@@ -106,7 +106,7 @@ Reading symbols from crackme4...
 
 Lets see some information about the fucntions by running:
 ```console
-gdb $ info functions
+gdb:~$ info functions
 0x00000000004004b0  _init
 0x00000000004004e0  puts@plt
 0x00000000004004f0  __stack_chk_fail@plt
@@ -130,13 +130,13 @@ gdb $ info functions
 
 We know that the password is hidden using strcmp, so in this case the `strcmp@plt` function could be interesting. Lets set a breakpoint to the memory location of this function.
 ```console
-gdb $ b *0x0000000000400520
+gdb:~$ b *0x0000000000400520
 Breakpoint 1 at 0x400520
 ```
 
 Great, now lets run the test
 ```console
-gdb $ run test
+gdb:~$ run test
 Starting program: /mnt/c/Users/Berkan/Downloads/crackme4 test
 
 Breakpoint 1, 0x0000000000400520 in strcmp@plt ()
@@ -144,7 +144,7 @@ Breakpoint 1, 0x0000000000400520 in strcmp@plt ()
 
 Maybe some information from the registers could be valuable. We'll see in a moment
 ```console
-gdb $ info registers
+gdb:~$ info registers
 (gdb) info registers
 rax            0x7fffffffdc10      140737488346128
 rbx            0x400760            4196192
@@ -174,7 +174,7 @@ gs             0x0                 0
 rax and rdx is general purpose registers, so they could provide us valuable information. We should see the string values from these memory locations.
 
 ```console
-gdb $ x/s 0x7fffffffdc10
+gdb:~$ x/s 0x7fffffffdc10
 0x7fffffffdc10: "flag_is_shown here"
 ```
 We found the flag!
@@ -214,7 +214,7 @@ gdb >
 ```
 Great, now let us try to list the functions.
 ```console
-gdb $ info functions
+gdb:~$ info functions
 All defined functions:
 
 Non-debugging symbols:
@@ -246,18 +246,18 @@ We can see another comparison function, `strncmp@plt`.
 
 I know repeated the process of setting a breakpoint and running the test.
 ```console
-gdb $ b *0x0000000000400560
+gdb:~$ b *0x0000000000400560
 Breakpoint 1 at 0x400560
-gdb $ run test
+gdb:~$ run test
 Starting program: /mnt/c/Users/Berkan/Downloads/crackme5 test
 Enter your input:
 
 ```
 When asked for the input, I entered "test"
 ```console
-gdb $ b *0x0000000000400560
+gdb:~$ b *0x0000000000400560
 Breakpoint 1 at 0x400560
-gdb $ run test
+gdb:~$ run test
 Starting program: /mnt/c/Users/Berkan/Downloads/crackme5 test
 Enter your input:
 test
@@ -267,7 +267,7 @@ Breakpoint 1, 0x0000000000400560 in strncmp@plt ()
 
 And then ran:
 ```console
-gdb $ info registers
+gdb:~$ info registers
 (gdb) info registers
 rax            0x7fffffffdc00      140737488346112
 rbx            0x4                 4
@@ -297,12 +297,12 @@ gs             0x0                 0
 I then looked up the string values for rax and rcx
 
 ```console
-gdb $ x/s 0x7fffffffdc00
+gdb:~$ x/s 0x7fffffffdc00
 0x7fffffffdc00: "test"
 ```
 Okay, so rax had my input. Lets check rcx
 ```console
-gdb $ x/s 0x7fffffffdc20
+gdb:~$ x/s 0x7fffffffdc20
 0x7fffffffdc00: "password_is_shown_here"
 ```
 Nice!
