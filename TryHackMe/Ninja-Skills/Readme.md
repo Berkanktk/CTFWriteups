@@ -25,7 +25,7 @@ Target IP = 10.10.7.177
 Machine Type = AttackBox
 
 # How to solve it
-**Locations of the files**
+**Location of the files**
 ```console
 berkankutuk@thm:~$ find / -type f \( -name 8V2L -o -name bny0 -o -name c4ZX -o -name D8B3 -o -name FHl1 -o -name oiMO -o -name PFbD -o -name rmfX -o -name SRSq -o -name uqyw -o -name v2Vb -o -name X1Uy \) 2>/dev/null
 
